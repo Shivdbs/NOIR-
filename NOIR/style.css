@@ -1,0 +1,611 @@
+/* =========================================================
+   NOIR STUDIO - Consolidated CSS
+   NOTE:
+   - This is a cleaned version of the stylesheet.
+   - It fixes the missing brace after @keyframes scroll,
+     removes duplicate body declarations, and groups related
+     sections together.
+   ========================================================= */
+
+:root{
+    --bg:#F5F3EC;
+    --text:#111;
+    --border:#222;
+    --light:#666;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Raleway",sans-serif;
+    padding-top:90px;
+    cursor:url("assets/cursor.png"),auto;
+}
+
+img{
+    display:block;
+    max-width:100%;
+    height:auto;
+}
+
+a{
+    transition:.3s;
+}
+
+/* ---------- Fonts ---------- */
+
+@font-face{
+    font-family:"Ivy Journal";
+    src:url("fonts/IvyJournal.woff2") format("woff2");
+}
+
+@font-face{
+    font-family:"New Icon";
+    src:url("fonts/NewIconSerif.woff2") format("woff2");
+}
+
+/* ---------- Header ---------- */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(12px);
+    background:rgba(245,243,236,.7);
+}
+
+.top-line,.bottom-line{
+    height:1px;
+    background:var(--text);
+}
+
+.navbar{
+    width:min(1400px,92%);
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 40px;
+}
+
+.logo{
+    font-family:"Ivy Journal",serif;
+    font-size:62px;
+    font-weight:300;
+    letter-spacing:-4px;
+}
+
+nav ul{
+    display:flex;
+    gap:50px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--text);
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.btn{
+    position:relative;
+    overflow:hidden;
+    z-index:1;
+    border:1px solid var(--text);
+    padding:15px 28px;
+    color:var(--text);
+    text-decoration:none;
+}
+
+.btn::before{
+    content:"";
+    position:absolute;
+    inset:auto 0 -100% 0;
+    height:100%;
+    background:#111;
+    transition:.35s;
+    z-index:-1;
+}
+
+.btn:hover{color:#fff;}
+.btn:hover::before{inset:0 0 0 0;}
+
+/* ---------- Hero ---------- */
+
+.hero{
+    width:min(1400px,92%);
+    margin:auto;
+    padding:70px 0;
+}
+
+.hero-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:70px;
+    font-size:15px;
+}
+
+.hero-content{
+    display:grid;
+    grid-template-columns:45% 55%;
+    align-items:center;
+}
+
+.hero-left h1{
+    font-family:"Ivy Journal",serif;
+    font-size:180px;
+    font-weight:300;
+    letter-spacing:-8px;
+    line-height:1;
+}
+
+.hero-right{padding-left:80px;}
+
+.hero-right h2{
+    font-family:"Ivy Journal",serif;
+    font-size:56px;
+    font-weight:300;
+    line-height:1.15;
+    margin-bottom:35px;
+}
+
+.hero-right p{
+    max-width:650px;
+    font-size:19px;
+    line-height:1.8;
+}
+
+/* ---------- Gallery ---------- */
+
+.gallery{
+    display:grid;
+    grid-template-columns:280px 280px 220px 1fr;
+    gap:35px;
+    margin-top:90px;
+}
+
+.large img{
+    height:100%;
+    object-fit:cover;
+}
+
+.text-box{
+    display:flex;
+    flex-direction:column;
+}
+
+.vol{
+    font-family:"Ivy Journal",serif;
+    font-size:36px;
+    margin-bottom:30px;
+}
+
+.line{
+    height:1px;
+    background:#000;
+    margin-bottom:40px;
+}
+
+.text-box p{
+    font-size:20px;
+    line-height:1.7;
+}
+
+/* ---------- Marquee ---------- */
+
+.marquee{
+    margin-top:80px;
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.track{
+    display:flex;
+    gap:80px;
+    padding:20px 0;
+    font-size:18px;
+    animation:scroll 18s linear infinite;
+}
+
+@keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+}
+
+/* ---------- Statement ---------- */
+
+.statement{
+    padding:180px 0;
+    text-align:center;
+}
+
+.statement-container{
+    max-width:950px;
+    margin:auto;
+}
+
+.statement h2,
+.cta h2,
+.contact h3,
+.project-text h2,
+.service-heading h2{
+    font-family:"Ivy Journal",serif;
+}
+
+.statement h2{
+    font-size:72px;
+    line-height:1.1;
+    margin-bottom:60px;
+}
+
+.statement span{font-style:italic;}
+
+.stamp{
+    width:70px;
+    margin:0 auto 45px;
+    opacity:.75;
+}
+
+.statement h3{
+    font-family:"Ivy Journal",serif;
+    font-size:42px;
+    font-style:italic;
+    margin-bottom:35px;
+}
+
+.statement p{
+    max-width:650px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+}
+
+/* ---------- Portfolio ---------- */
+
+.portfolio{
+    margin-top:120px;
+    border-top:1px solid var(--border);
+}
+
+.section-title{
+    padding:18px;
+    text-align:center;
+    border-bottom:1px solid var(--border);
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.project-text{
+    padding:70px;
+    min-height:430px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    border-bottom:1px solid var(--border);
+}
+
+.project-text h2{
+    font-size:52px;
+    margin:18px 0;
+}
+
+.project-text p{
+    margin-bottom:45px;
+    line-height:1.6;
+}
+
+.project-text a{
+    width:max-content;
+    border:1px solid #000;
+    padding:14px 28px;
+    text-decoration:none;
+    color:#000;
+}
+
+.project-text a:hover{
+    background:#000;
+    color:#fff;
+}
+
+.project-image{
+    height:430px;
+    overflow:hidden;
+    border-bottom:1px solid var(--border);
+}
+
+.project-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:1s;
+}
+
+.project-image:hover img{
+    transform:scale(1.12);
+}
+
+/* ---------- CTA ---------- */
+
+.cta{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    padding:130px 8%;
+    background:#111;
+    color:#fff;
+}
+
+.cta h2{
+    font-size:70px;
+    line-height:1.15;
+    max-width:560px;
+}
+
+.cta-right{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.cta-right p{
+    line-height:2;
+    margin-bottom:45px;
+    color:#ddd;
+}
+
+/* ---------- Services ---------- */
+
+.services{
+    padding:130px 8%;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:60px;
+}
+
+.service{
+    padding-top:30px;
+    border-top:1px solid #000;
+}
+
+/* ---------- Testimonial ---------- */
+
+.testimonial{
+    padding:140px 10%;
+    text-align:center;
+}
+
+/* ---------- Contact ---------- */
+
+/* ===========================
+CONTACT
+=========================== */
+
+.contact{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+
+    background:#F7F5EF;
+
+}
+
+.contact-left{
+
+    border-right:1px solid #222;
+
+    padding:45px;
+
+}
+
+.contact-left img{
+
+    width:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+}
+
+.contact-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:80px;
+
+}
+
+.contact-right small{
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    margin-bottom:35px;
+
+}
+
+.contact-right h2{
+
+    font-family:"Ivy Journal",serif;
+
+    font-size:62px;
+
+    font-weight:300;
+
+    line-height:1.05;
+
+    margin-bottom:35px;
+
+}
+
+.contact-right p{
+
+    max-width:540px;
+
+    line-height:1.9;
+
+    color:#555;
+
+    margin-bottom:35px;
+
+}
+
+.contact-right .btn{
+
+    width:220px;
+
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr 1fr;
+
+    padding:55px 70px;
+
+    background:#F7F5EF;
+
+    border-top:1px solid #222;
+
+}
+
+.footer-logo{
+
+    font-family:"Ivy Journal",serif;
+
+    font-size:58px;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:space-between;
+
+}
+
+.footer-links a{
+
+    display:block;
+
+    margin:12px 0;
+
+    text-decoration:none;
+
+    color:#111;
+
+}
+
+.copyright{
+
+    grid-column:1/4;
+
+    margin-top:40px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    border-top:1px solid #ccc;
+
+    padding-top:18px;
+
+}
+/* ---------- Animation ---------- */
+
+.fade{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:none;
+}
+
+.flower{
+    position:absolute;
+    width:70px;
+    animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-18px);}
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:900px){
+
+.hero-content,
+.projects,
+.cta,
+.contact,
+.service-grid{
+    grid-template-columns:1fr;
+}
+
+.gallery{
+    grid-template-columns:1fr;
+}
+
+.hero-left h1{
+    font-size:90px;
+}
+
+.statement h2{
+    font-size:42px;
+}
+
+.cta h2{
+    font-size:46px;
+}
+
+.contact h3{
+    font-size:48px;
+}
+
+}
+
+
+
+
+
+
+
